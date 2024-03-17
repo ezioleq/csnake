@@ -1,0 +1,6 @@
+#ifndef CSNAKE_CONSTANTS_H
+#define CSNAKE_CONSTANTS_H
+
+#define GAME_LOGICAL_SIZE 32
+
+#endif
