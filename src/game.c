@@ -1,6 +1,8 @@
 #include "game.h"
 #include "constants.h"
 
+#include <time.h>
+
 void game_run(game_t *game) {
     game->is_running = true;
 
@@ -19,6 +21,8 @@ void game_run(game_t *game) {
 }
 
 void game_init(game_t *game) {
+    srand(time(NULL));
+
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
         fprintf(stderr, "Failed to initialize SDL! %s\n", SDL_GetError());
         exit(1);
