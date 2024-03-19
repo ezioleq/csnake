@@ -27,6 +27,8 @@ void snake_update(snake_t *snake);
 
 void snake_append_tail(snake_t *snake);
 
+void snake_reset(snake_t *snake);
+
 void snake_draw(SDL_Renderer *renderer, snake_t *snake);
 
 void snake_free(snake_t *snake);

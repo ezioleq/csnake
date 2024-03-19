@@ -65,6 +65,11 @@ void snake_update(snake_t *snake) {
     snake_body_t *body_part = snake->tail;
 
     while (body_part != snake->head) {
+        if (snake->head->pos_x == body_part->pos_x && snake->head->pos_y == body_part->pos_y) {
+            snake_reset(snake);
+            return;
+        }
+
         body_part->pos_x = body_part->prev->pos_x;
         body_part->pos_y = body_part->prev->pos_y;
         body_part = body_part->prev;
@@ -102,6 +107,11 @@ void snake_append_tail(snake_t *snake) {
             new_body->pos_y = snake->tail->pos_y;
             break;
     }
+}
+
+void snake_reset(snake_t *snake) {
+    snake_free(snake);
+    snake_init(snake);
 }
 
 void snake_draw(SDL_Renderer *renderer, snake_t *snake) {
