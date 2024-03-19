@@ -5,9 +5,16 @@
 #include <stdlib.h>
 #include "direction.h"
 
-typedef struct snake_t {
+typedef struct snake_body_t {
     int32_t pos_x;
     int32_t pos_y;
+    struct snake_body_t *prev;
+    struct snake_body_t *next;
+} snake_body_t;
+
+typedef struct snake_t {
+    snake_body_t *head;
+    snake_body_t *tail;
     int32_t length;
     direction_t direction;
 } snake_t;

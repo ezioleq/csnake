@@ -13,7 +13,7 @@ void food_randomize_position(food_t *food) {
 }
 
 void food_update(food_t *food, snake_t *snake) {
-    if (snake->pos_x == food->pos_x && snake->pos_y == food->pos_y) {
+    if (snake->head->pos_x == food->pos_x && snake->head->pos_y == food->pos_y) {
         food_randomize_position(food);
         snake_append_tail(snake);
     }
