@@ -77,6 +77,8 @@ void game_draw(game_t *game) {
 }
 
 void game_clean(game_t *game) {
+    snake_free(&game->snake);
+
     SDL_DestroyRenderer(game->renderer);
     SDL_DestroyWindow(game->window);
     SDL_Quit();

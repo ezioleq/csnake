@@ -69,3 +69,7 @@ void snake_draw(SDL_Renderer *renderer, snake_t *snake) {
     SDL_SetRenderDrawColor(renderer, 127, 127, 127, SDL_ALPHA_OPAQUE);
     SDL_RenderFillRect(renderer, &body);
 }
+
+void snake_free(snake_t *snake) {
+
+}
