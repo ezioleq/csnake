@@ -54,6 +54,10 @@ void snake_update(snake_t *snake) {
         snake->pos_x = GAME_LOGICAL_SIZE - 1;
 }
 
+void snake_append_tail(snake_t *snake) {
+    snake->length++;
+}
+
 void snake_draw(SDL_Renderer *renderer, snake_t *snake) {
     SDL_Rect body = {
         .x = snake->pos_x,
@@ -64,8 +68,4 @@ void snake_draw(SDL_Renderer *renderer, snake_t *snake) {
 
     SDL_SetRenderDrawColor(renderer, 127, 127, 127, SDL_ALPHA_OPAQUE);
     SDL_RenderFillRect(renderer, &body);
-}
-
-void snake_free(snake_t *snake) {
-    (void)snake;
 }
