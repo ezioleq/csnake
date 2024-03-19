@@ -14,6 +14,10 @@ add_executable(
         src/game.h
         src/direction.h
         src/constants.h
+        src/food.c
+        src/food.h
+        src/mathf.c
+        src/mathf.h
 )
 
 target_link_libraries(csnake SDL2)

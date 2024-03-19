@@ -50,6 +50,7 @@ void game_init(game_t *game) {
     SDL_RenderSetLogicalSize(game->renderer, GAME_LOGICAL_SIZE, GAME_LOGICAL_SIZE);
 
     snake_init(&game->snake);
+    food_init(&game->food);
 }
 
 void game_handle_events(game_t *game) {
@@ -61,21 +62,21 @@ void game_handle_events(game_t *game) {
 
 void game_update(game_t *game) {
     snake_update(&game->snake);
+    food_update(&game->food, &game->snake);
 }
 
 void game_draw(game_t *game) {
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(game->renderer);
 
+    food_draw(game->renderer, &game->food);
     snake_draw(game->renderer, &game->snake);
-    SDL_Delay(100);
 
     SDL_RenderPresent(game->renderer);
+    SDL_Delay(100);
 }
 
 void game_clean(game_t *game) {
-    snake_free(&game->snake);
-
     SDL_DestroyRenderer(game->renderer);
     SDL_DestroyWindow(game->window);
     SDL_Quit();

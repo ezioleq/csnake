@@ -4,10 +4,12 @@
 #include <stdbool.h>
 #include <SDL2/SDL.h>
 #include "snake.h"
+#include "food.h"
 
 typedef struct game_t {
     bool is_running;
     snake_t snake;
+    food_t food;
 
     SDL_Event event;
     SDL_Window *window;
